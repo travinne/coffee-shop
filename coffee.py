@@ -6,14 +6,14 @@ class Coffee:
             self._name = name
             self._orders = []
         else:    
-            raise ValueError('name of coffee must at least have three characters') 
+            raise ValueError('name of coffee must at least have 3 characters') 
           
     @property
     def name(self):
         return self._name
     
     def orders(self):
-        return self._orders[:]
+        return Coffee.orders()
 
     def customers(self):
         return list({order.customer for order in self._orders})
@@ -24,4 +24,4 @@ class Coffee:
     def coffee_pricing(self):
         if not self._orders:
             return 0 
-        return sum (order.price for order in self._orders)
+        return sum (order.price for order in self._orders) / len(self._orders)

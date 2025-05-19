@@ -1,10 +1,6 @@
 class Order:
-    all_orders = []
-
     def __init__(self, customer, coffee, price):
-        if not isinstance(customer, object) or not isinstance(coffee, object):
-            raise TypeError('customer and coffee must be objects')
-        if not isinstance(price, float) or not (1.0 <= price <= 10.0):
+        if not isinstance(price,(int, float)) or not (1.0 <= price <= 10.0):
             raise ValueError("Price must be  between float 1.0 and float 10.0")
 
         self._customer = customer
