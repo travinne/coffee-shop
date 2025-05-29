@@ -28,13 +28,11 @@ class Customer:
         coffee._orders.append(order)
         return order
         
-
-
-    def  coffeeShop(cls, coffee):
+    @classmethod
+    def coffeeShop(cls, coffee):
         shoppers = {}
         for order in coffee.orders():
-         
-                shoppers[order.customer] = shoppers.get(order.customer, 0) + order.price
+            shoppers[order.customer] = shoppers.get(order.customer, 0) + order.price
         if not shoppers:
             return None
-        return max(shoppers, key = shoppers.get)
+        return max(shoppers, key=shoppers.get)
